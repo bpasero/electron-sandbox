@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' http: https: data:; media-src 'self' http: https: data:; child-src 'none'; script-src 'nonce-1496399466329330'; style-src 'self' 'unsafe-inline' http: https: data:; font-src 'self' http: https: data:;">
+    <meta id="vscode-markdown-preview-data" data-settings="{&quot;previewUri&quot;:&quot;markdown:/Users/bpasero/Desktop/test-ts/node_modules/clone/README.md.rendered?file%3A%2F%2F%2FUsers%2Fbpasero%2FDesktop%2Ftest-ts%2Fnode_modules%2Fclone%2FREADME.md&quot;,&quot;source&quot;:&quot;file:///Users/bpasero/Desktop/test-ts/node_modules/clone/README.md&quot;,&q…lEditorWithPreview&quot;:true,&quot;doubleClickToSwitchToEditor&quot;:true}"
+        data-strings="{&quot;cspAlertMessageText&quot;:&quot;Scripts have been disabled in this document&quot;,&quot;cspAlertMessageTitle&quot;:&quot;Scripts are disabled in the markdown preview. Change the Markdown preview secuirty setting to enable scripts&quot;,&quot;cspAlertMessageLabel&quot;:&quot;Scripts Disabled Security Warning&quot;}">
+    <script src="file:///Users/bpasero/Development/monaco/extensions/markdown/media/csp.js" nonce="1496399466329330"></script>
+    <script src="file:///Users/bpasero/Development/monaco/extensions/markdown/media/loading.js" nonce="1496399466329330"></script>
+    <link rel="stylesheet" type="text/css" href="file:///Users/bpasero/Development/monaco/extensions/markdown/media/markdown.css">
+    <link rel="stylesheet" type="text/css" href="file:///Users/bpasero/Development/monaco/extensions/markdown/media/tomorrow.css">
+    <style nonce="1496399466329330">
+        body {
+            font-family: system-ui, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+
+    <base href="file:///Users/bpasero/Desktop/test-ts/node_modules/clone/README.md">
+</head>
+
+<body class="vscode-body scrollBeyondLastLine  showEditorSelection">
+    <h1 data-line="0" class="code-line" id="clone">clone</h1>
+    <p data-line="2" class="code-line"><a href="http://travis-ci.org/pvorb/node-clone"><img src="https://secure.travis-ci.org/pvorb/node-clone.png" alt="build status"></a></p>
+    <p data-line="4" class="code-line"><a href="http://npm-stat.com/charts.html?package=clone"><img src="https://nodei.co/npm/clone.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="info badge"></a></p>
+    <p data-line="6" class="code-line">offers foolproof <em>deep cloning</em> of objects, arrays, numbers, strings etc. in JavaScript.</p>
+    <h2 data-line="9" class="code-line" id="installation">Installation</h2>
+    <pre data-line="11" class="code-line"><code>npm install clone
+</code></pre>
+    <p data-line="13" class="code-line">(It also works with browserify, ender or standalone.)</p>
+    <h2 data-line="16" class="code-line" id="example">Example</h2>
+    <pre class="hljs"><code><div><span class="hljs-keyword">var</span> clone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'clone'</span>);
+
+<span class="hljs-keyword">var</span> a, b;
+
+a = { foo: { bar: <span class="hljs-string">'baz'</span> } };  <span class="hljs-comment">// initial value of a</span>
+
+b = clone(a);                 <span class="hljs-comment">// clone a -&gt; b</span>
+a.foo.bar = <span class="hljs-string">'foo'</span>;            <span class="hljs-comment">// change a</span>
+
+<span class="hljs-built_in">console</span>.log(a);               <span class="hljs-comment">// show a</span>
+<span class="hljs-built_in">console</span>.log(b);               <span class="hljs-comment">// show b</span>
+</div></code></pre>
+    <p data-line="32" class="code-line">This will print:</p>
+    <pre class="hljs"><code><div>{ foo: { bar: <span class="hljs-string">'foo'</span> } }
+{ foo: { bar: <span class="hljs-string">'baz'</span> } }
+</div></code></pre>
+    <p data-line="39" class="code-line"><strong>clone</strong> masters cloning simple objects (even with custom prototype), arrays, Date objects, and RegExp
+        objects. Everything is cloned recursively, so that you can clone dates in arrays in objects, for example.</p>
+    <h2 data-line="44" class="code-line" id="api">API</h2>
+    <p data-line="46" class="code-line"><code>clone(val, circular, depth)</code></p>
+    <ul>
+        <li data-line="48" class="code-line">
+            <p data-line="48" class="code-line"><code>val</code> -- the value that you want to clone, any type allowed</p>
+        </li>
+        <li data-line="49" class="code-line">
+            <p data-line="49" class="code-line"><code>circular</code> -- boolean</p>
+            <p data-line="51" class="code-line">Call <code>clone</code> with <code>circular</code> set to <code>false</code> if you are certain that <code>obj</code>                contains no circular references. This will give better performance if needed. There is no error if <code>undefined</code>                or <code>null</code> is passed as <code>obj</code>.</p>
+        </li>
+        <li data-line="54" class="code-line">
+            <p data-line="54" class="code-line"><code>depth</code> -- depth to which the object is to be cloned (optional, defaults to infinity)</p>
+        </li>
+    </ul>
+    <p data-line="57" class="code-line"><code>clone.clonePrototype(obj)</code></p>
+    <ul>
+        <li data-line="59" class="code-line"><code>obj</code> -- the object that you want to clone</li>
+    </ul>
+    <p data-line="61" class="code-line">Does a prototype clone as
+        <a href="http://oranlooney.com/functional-javascript/">described by Oran Looney</a>.</p>
+    <h2 data-line="65" class="code-line" id="circular-references">Circular References</h2>
+    <pre class="hljs"><code><div><span class="hljs-keyword">var</span> a, b;
+
+a = { hello: <span class="hljs-string">'world'</span> };
+
+a.myself = a;
+b = clone(a);
+
+<span class="hljs-built_in">console</span>.log(b);
+</div></code></pre>
+    <p data-line="78" class="code-line">This will print:</p>
+    <pre class="hljs"><code><div>{ hello: <span class="hljs-string">"world"</span>, myself: [Circular] }
+</div></code></pre>
+    <p data-line="84" class="code-line">So, <code>b.myself</code> points to <code>b</code>, not <code>a</code>. Neat!</p>
+    <h2 data-line="87" class="code-line" id="test">Test</h2>
+    <pre data-line="89" class="code-line"><code>npm test
+</code></pre>
+    <h2 data-line="92" class="code-line" id="caveat">Caveat</h2>
+    <p data-line="94" class="code-line">Some special objects like a socket or <code>process.stdout</code>/<code>stderr</code> are known to not be cloneable.
+        If you find other objects that cannot be cloned, please <a href="https://github.com/pvorb/node-clone/issues/new">open an
+issue</a>.</p>
+    <h2 data-line="99" class="code-line" id="bugs-and-issues">Bugs and Issues</h2>
+    <p data-line="101" class="code-line">If you encounter any bugs or issues, feel free to <a href="https://github.com/pvorb/node-clone/issues">open an issue at
+github</a> or send me an email to
+        <a href="mailto:paul@vorba.ch">paul@vorba.ch</a>. I also always like to hear from you, if you’re using my code.</p>
+    <h2 data-line="105" class="code-line" id="license">License</h2>
+    <p data-line="107" class="code-line">Copyright © 2011-2015 <a href="http://paul.vorba.ch/">Paul Vorbach</a> and
+        <a href="https://github.com/pvorb/node-clone/graphs/contributors">contributors</a>.</p>
+    <p data-line="110" class="code-line">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+        files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use,
+        copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to
+        whom the Software is furnished to do so, subject to the following conditions:</p>
+    <p data-line="117" class="code-line">The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+        Software.
+    </p>
+    <p data-line="120" class="code-line">THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+        OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+        OR OTHERWISE, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+    <div class="code-line" data-line="127"></div>
+    <script async src="file:///Users/bpasero/Development/monaco/extensions/markdown/media/main.js" nonce="1496399466329330"></script>
+</body>
+
+</html>
